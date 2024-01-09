@@ -90,9 +90,42 @@
                 </div>
                 <!-- side nav -->
                 <div class="col-md-2 p-0 bg-secondary">
-                    <ul class="navbar-nav me-auto">
+
+                    <!-- brands part -->
+                    <ul class="navbar-nav me-auto text-center">
                         <li class="nav-item bg-info">
-                            <a href="" class="nav-link text-light text-center"><h4>Delivery Brands</h4></a>
+                            <a href="" class="nav-link text-light"><h4>Delivery Brands</h4></a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="" class="nav-link text-light">Brand1</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="" class="nav-link text-light">Brand2</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="" class="nav-link text-light">Brand3</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="" class="nav-link text-light">Brand4</a>
+                        </li>
+                    </ul>
+                    
+                    <!-- categories part -->
+                    <ul class="navbar-nav me-auto text-center">
+                        <li class="nav-item bg-info">
+                            <a href="" class="nav-link text-light"><h4>Categories</h4></a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="" class="nav-link text-light">Categories</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="" class="nav-link text-light">Categories</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="" class="nav-link text-light">Categories</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="" class="nav-link text-light">Categories</a>
                         </li>
                     </ul>
                 </div>

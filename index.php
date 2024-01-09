@@ -92,7 +92,7 @@
                 <div class="col-md-2 p-0 bg-secondary">
                     <ul class="navbar-nav me-auto">
                         <li class="nav-item bg-info">
-                            <a href="" class="nav-link">Delivery Brands</a>
+                            <a href="" class="nav-link text-light text-center"><h4>Delivery Brands</h4></a>
                         </li>
                     </ul>
                 </div>

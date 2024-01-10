@@ -45,7 +45,7 @@
                     <div class="button text-center">
                         <button class="my-2"><a href="" class="nav-link text-light bg-info my-1 px-5 py-2">Insert Products</a></button>
                         <button><a href="" class="nav-link text-light bg-info my-1 px-5 py-2">View Products</a></button>
-                        <button><a href="" class="nav-link text-light bg-info my-1 px-5 py-2">Insert Categories</a></button>
+                        <button><a href="InsertCategories.php" class="nav-link text-light bg-info my-1 px-5 py-2">Insert Categories</a></button>
                         <button><a href="" class="nav-link text-light bg-info my-1 px-5 py-2">View Categories</a></button>
                         <button><a href="" class="nav-link text-light bg-info my-1 px-5 py-2">Insert Brands</a></button>
                         <button><a href="" class="nav-link text-light bg-info my-1 px-5 py-2">View Brands</a></button>

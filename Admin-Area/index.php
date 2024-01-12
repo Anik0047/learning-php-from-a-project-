@@ -47,9 +47,9 @@
                     <div class="button text-center">
                         <button class="my-2"><a href="" class="nav-link text-light bg-info my-1 px-5 py-2">Insert Products</a></button>
                         <button><a href="" class="nav-link text-light bg-info my-1 px-5 py-2">View Products</a></button>
-                        <button><a href="InsertCategories.php" class="nav-link text-light bg-info my-1 px-5 py-2">Insert Categories</a></button>
+                        <button><a href="index.php?InsertCategories" class="nav-link text-light bg-info my-1 px-5 py-2">Insert Categories</a></button>
                         <button><a href="" class="nav-link text-light bg-info my-1 px-5 py-2">View Categories</a></button>
-                        <button><a href="" class="nav-link text-light bg-info my-1 px-5 py-2">Insert Brands</a></button>
+                        <button><a href="index.php?InsertBrands" class="nav-link text-light bg-info my-1 px-5 py-2">Insert Brands</a></button>
                         <button><a href="" class="nav-link text-light bg-info my-1 px-5 py-2">View Brands</a></button>
                         <button><a href="" class="nav-link text-light bg-info my-1 px-5 py-2">All Orders</a></button>
                         <button><a href="" class="nav-link text-light bg-info my-1 px-5 py-2">All Payments</a></button>
@@ -62,8 +62,17 @@
     </div>
 
 
-
-
+    <!-- fourth child -->
+    <div class="container my-5">
+        <?php
+         if(isset($_GET['InsertCategories'])){
+            include('InsertCategories.php');
+         }
+         if(isset($_GET['InsertBrands'])){
+            include('InsertBrands.php');
+         }
+        ?>
+    </div> 
 
 
     <!-- bootstrap js -->

@@ -127,12 +127,17 @@ include('includes/connect.php');
                             </a>
                         </li>
                         <?php
+                        // Selecting all brands from the 'brands' table in the database
+                        $select_brands = "Select * from `brands`";
+                        // Executing the query and storing the result set in $result_brands
+                        $result_brands = mysqli_query($con, $select_brands);
 
-                        $select_brands ="Select * from `brands`";
-                        $result_brands =mysqli_query($con, $select_brands);
-                        while($row_data=mysqli_fetch_assoc($result_brands)){
-                            $brand_title=$row_data['brands_title'];
-                            $brand_id=$row_data['brands_id'];
+                        // Looping through each row in the result set
+                        while ($row_data = mysqli_fetch_assoc($result_brands)) {
+                            // Extracting brand_title and brand ID from the current row
+                            $brand_title = $row_data['brands_title'];
+                            $brand_id = $row_data['brands_id'];
+                            // Outputting HTML code for each category as list item with a link
                             echo "<li class='nav-item'>
                             <a href='index.php?brand=$brand_id' class='nav-link text-light'>$brand_title</a>
                         </li>";
@@ -148,17 +153,24 @@ include('includes/connect.php');
                             </a>
                         </li>
                         <?php
+                        // Selecting all categories from the 'categories' table in the database
+                        $select_categories = "Select * from `categories`";
+                        // Executing the query and storing the result set in $result_categories
+                        $result_categories = mysqli_query($con, $select_categories);
 
-                        $select_categories ="Select * from `categories`";
-                        $result_categories =mysqli_query($con, $select_categories);
-                        while($row_data=mysqli_fetch_assoc($result_categories)){
-                            $category_title=$row_data['category_title'];
-                            $category_id=$row_data['category_id'];
+                        // Looping through each row in the result set
+                        while ($row_data = mysqli_fetch_assoc($result_categories)) {
+                            // Extracting category title and category ID from the current row
+                            $category_title = $row_data['category_title'];
+                            $category_id = $row_data['category_id'];
+
+                            // Outputting HTML code for each category as list item with a link
                             echo "<li class='nav-item'>
                             <a href='index.php?category=$category_id' class='nav-link text-light'>$category_title</a>
-                        </li>";
+                            </li>";
                         }
                         ?>
+
                     </ul>
                 </div>
             </div>

@@ -1,3 +1,7 @@
+<?php
+include('../includes/connect.php');
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -42,9 +46,26 @@
             <div class="form-outline mb-4 w-50 m-auto">
                 <select name="product_category" id="" class="form-select">
                     <option value="">Select a Category</option>
-                    <option value="">Category 1</option>
-                    <option value="">Category 2</option>
-                    <option value="">Category 3</option>
+                    <?php
+                    // Select all records from the 'categories' table
+                    $select_query = "Select * from `categories`";
+
+                    // Execute the query using mysqli_query and store the result in $result_query
+                    $result_query = mysqli_query($con, $select_query);
+
+                    // Loop through each row in the result set
+                    while ($row = mysqli_fetch_assoc($result_query)) {
+                        // Retrieve the category title from the current row
+                        $category_title = $row['category_title'];
+
+                        // Retrieve the category ID from the current row
+                        $category_id = $row['category_id'];
+
+                        // Output an HTML <option> tag with the category ID as the value and category title as the display text
+                        echo "<option value='$category_id'>$category_title</option>";
+                    }
+                    ?>
+
                 </select>
             </div>
 
@@ -52,9 +73,26 @@
             <div class="form-outline mb-4 w-50 m-auto">
                 <select name="product_brand" id="" class="form-select">
                     <option value="">Select a Brands</option>
-                    <option value="">Brands 1</option>
-                    <option value="">Brands 2</option>
-                    <option value="">Brands 3</option>
+                    <?php
+                    // Select all records from the 'brands' table
+                    $select_query = "Select * from `brands`";
+
+                    // Execute the query using mysqli_query and store the result in $result_query
+                    $result_query = mysqli_query($con, $select_query);
+
+                    // Loop through each row in the result set
+                    while ($row = mysqli_fetch_assoc($result_query)) {
+                        // Retrieve the brand title from the current row
+                        $brand_title = $row['brands_title'];
+
+                        // Retrieve the brand ID from the current row
+                        $brand_id = $row['brands_id'];
+
+                        // Output an HTML <option> tag with the brand ID as the value and brand title as the display text
+                        echo "<option value='$brand_id'>$brand_title</option>";
+                    }
+                    ?>
+
                 </select>
             </div>
 
@@ -62,14 +100,14 @@
             <div class="form-outline mb-4 w-50 m-auto">
                 <label for="product_image1" class="form-label">Product Image 1</label>
 
-                <input type="file" name="product_image1" id="product_image1" class="form-control"  autocomplete="off" required>
+                <input type="file" name="product_image1" id="product_image1" class="form-control" autocomplete="off" required>
             </div>
 
             <!-- Image 2 -->
             <div class="form-outline mb-4 w-50 m-auto">
                 <label for="product_image2" class="form-label">Product Image 2</label>
 
-                <input type="file" name="product_image2" id="product_image2" class="form-control"  autocomplete="off" required>
+                <input type="file" name="product_image2" id="product_image2" class="form-control" autocomplete="off" required>
             </div>
 
             <!-- Price -->
@@ -86,8 +124,6 @@
         </form>
         <!-- Form End -->
     </div>
-
-
 
 
 

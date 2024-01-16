@@ -1,6 +1,49 @@
 <?php
+// Include the connection file to establish a connection to the database
 include('../includes/connect.php');
+
+// Check if the form with the name 'insert-product' is submitted
+if(isset($_POST['insert-product'])){
+    // Retrieve data from the form fields
+    $product_title = $_POST['product_title'];    
+    $product_description = $_POST['product_description'];    
+    $product_keyword = $_POST['product_keyword'];    
+    $product_category = $_POST['product_category'];    
+    $product_brand = $_POST['product_brand'];    
+    $product_price = $_POST['product_price'];    
+    $product_status = 'true'; // Set the default status
+
+    // Accessing images from the file inputs in the form
+    $product_image1 = $_FILES['product_image1']['name'];
+    $product_image2 = $_FILES['product_image2']['name'];
+
+    // Accessing temporary image names
+    $temp_image1 = $_FILES['product_image1']['tmp_name'];
+    $temp_image2 = $_FILES['product_image2']['tmp_name'];
+
+    // Checking if any of the required fields are empty
+    if($product_title=='' or $product_description=='' or $product_keyword=='' or $product_category=='' or $product_brand=='' or $product_price=='' or $product_image1=='' or $product_image2==''){
+        echo "<script>alert('Please Fill All The Fields')</script>";
+        exit(); // Exit the script if any required field is empty
+    } else {
+        // Move the uploaded images to a specific directory
+        move_uploaded_file($temp_image1, "./Product Images/$product_image1");
+        move_uploaded_file($temp_image2, "./Product Images/$product_image2");  
+
+        // Insert the product data into the 'products' table
+        $insert_products = "INSERT INTO `products` (product_title, product_description, product_keyword, category_id, brand_id, product_image1, product_image2, product_price, date, status) VALUES ('$product_title', '$product_description', '$product_keyword', '$product_category', '$product_brand', '$product_image1', '$product_image2', '$product_price', NOW(), '$product_status')";
+        
+        // Execute the insert query
+        $result_query = mysqli_query($con, $insert_products);
+
+        // Check if the insertion was successful and display a success message
+        if($result_query){
+            echo "<script>alert('Successfully inserted the products')</script>";
+        }
+    }
+}
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -83,10 +126,10 @@ include('../includes/connect.php');
                     // Loop through each row in the result set
                     while ($row = mysqli_fetch_assoc($result_query)) {
                         // Retrieve the brand title from the current row
-                        $brand_title = $row['brands_title'];
+                        $brand_title = $row['brand_title'];
 
                         // Retrieve the brand ID from the current row
-                        $brand_id = $row['brands_id'];
+                        $brand_id = $row['brand_id'];
 
                         // Output an HTML <option> tag with the brand ID as the value and brand title as the display text
                         echo "<option value='$brand_id'>$brand_title</option>";

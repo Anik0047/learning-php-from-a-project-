@@ -135,8 +135,8 @@ include('includes/connect.php');
                         // Looping through each row in the result set
                         while ($row_data = mysqli_fetch_assoc($result_brands)) {
                             // Extracting brand_title and brand ID from the current row
-                            $brand_title = $row_data['brands_title'];
-                            $brand_id = $row_data['brands_id'];
+                            $brand_title = $row_data['brand_title'];
+                            $brand_id = $row_data['brand_id'];
                             // Outputting HTML code for each category as list item with a link
                             echo "<li class='nav-item'>
                             <a href='index.php?brand=$brand_id' class='nav-link text-light'>$brand_title</a>

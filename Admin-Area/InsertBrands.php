@@ -8,7 +8,7 @@ if(isset($_POST['insert_brand'])){
     $brand_title=$_POST['brand_title'];
 
     // Selecting data from the database to check if the brand already exists
-    $select_query="Select * from `brands` where brands_title='$brand_title'";
+    $select_query="Select * from `brands` where brand_title='$brand_title'";
     $result_select=mysqli_query($con,$select_query);
 
     // Counting the number of rows returned from the select query
@@ -19,7 +19,7 @@ if(isset($_POST['insert_brand'])){
         echo "<script>alert('This brand already exists.')</script>";
     }else{
         // Inserting the new brand into the database
-        $insert_query="insert into `brands` (brands_title) value ('$brand_title')";
+        $insert_query="insert into `brands` (brand_title) value ('$brand_title')";
         $result=mysqli_query($con,$insert_query);
 
         // Checking if the insertion was successful and displaying an alert

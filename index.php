@@ -84,7 +84,7 @@ include('includes/connect.php');
                         <!-- fetching products from database -->
                         <?php
                         // Select 9 random products from the 'products' table
-                        $select_query = "SELECT * FROM `products` ORDER BY RAND() LIMIT 0,9";
+                        $select_query = "SELECT * FROM `products` ORDER BY RAND() LIMIT 0,3";
 
                         // Execute the query using mysqli_query and store the result in $result_query
                         $result_query = mysqli_query($con, $select_query);
